@@ -23,17 +23,16 @@ git clone https://github.com/fijiwebdesign/esbuild-server
 
 ```
 
-The entry file is `src/index.js`. Add some code to it. 
+### Add entry file
+
+The entry file defaults to `src/index.js`. Add some code to it. 
 
 *Example:*
 
 ```
-
+mkdir src/
 echo "alert('hello!')" > src/index.js
-
 ```
-
-For now you can edit the `esbuild-server/config.js` to modify the entry file, target or any other esbuild configs. 
 
 ## Serve your build
 
@@ -50,3 +49,40 @@ In this example `esbuild-server/serve.js` looks in the parent directory it is ca
 ```
 node esbuild-server/build.js
 ```
+
+## Custom serve configuration
+
+You can pass any build configs that esbuild accepts.
+
+```
+import { copyBuildAndServe } from './esbuild-server/index.js'
+
+// copy public/ to serve/
+// build ./index.ts to serve/assets/index.js
+// serve serve/index.html
+// your public/index.html must have <script src="assets/index.js"></script>
+
+copyBuildAndServe({
+  entryPoints: ["./index.ts"],
+  outfile: "./serve/assets/index.js",
+})
+```
+
+## Custom build configuration
+
+You can pass any build configs that esbuild accepts.
+
+```
+import { copyAndBuild } from './esbuild-server/index.js'
+
+// copy public/ to serve/
+// build ./index.ts to ./build/assets/index.js
+// your public/index.html must have <script src="assets/index.js"></script>
+
+copyAndBuild({
+  entryPoints: ["./index.ts"],
+  outfile: "./build/assets/index.js",
+})
+
+```
+
