@@ -1,0 +1,35 @@
+// required for alias-hq 
+{
+  "compilerOptions": {
+    "paths": {
+    },
+    "noFallthroughCasesInSwitch": true,
+    "experimentalDecorators": true,
+    "allowJs": true,
+    "target": "es5",
+    "lib": [
+      "es2015",
+      "es2017",
+      "dom"
+    ],
+    "skipLibCheck": true,
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "module": "esnext",
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "noEmit": true,
+    "jsx": "react",
+    "baseUrl": "./src",
+    "useDefineForClassFields": true
+  },
+  "files": [],
+  "include": [
+    "./src"
+  ],
+  "exclude": [
+  ]
+}
